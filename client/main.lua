@@ -27,6 +27,7 @@ function ShowJobListingMenu()
 				label = data[i].label_cn
 			else 
 				label = data[i].label
+			end
 			table.insert(elements, {
 				label = label,
 				job   = data[i].job
