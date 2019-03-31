@@ -35,6 +35,7 @@ function ShowJobListingMenu()
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'joblisting', {
+			css 	 = 'joblisting',
 			title    = _U('job_center'),
 			align    = 'top-left',
 			elements = elements
@@ -75,7 +76,7 @@ Citizen.CreateThread(function()
 
 		for i=1, #Config.Zones, 1 do
 			if GetDistanceBetweenCoords(coords, Config.Zones[i].x, Config.Zones[i].y, Config.Zones[i].z, true) < (Config.ZoneSize.x / 2) then
-				isInJoblistingMarker  = true
+				isInJoblistingMarker = true
 				ESX.ShowHelpNotification(_U('access_job_center'))
 			end
 		end
@@ -88,6 +89,12 @@ Citizen.CreateThread(function()
 			hasAlreadyEnteredMarker = false
 			TriggerEvent('esx_joblisting:hasExitedMarker')
 		end
+
+		if IsControlJustReleased(0, Keys['E']) and isInJoblistingMarker and not menuIsShowed then
+			ESX.UI.Menu.CloseAll()
+			ShowJobListingMenu()
+		end
+
 	end
 end)
 
@@ -105,17 +112,5 @@ Citizen.CreateThread(function()
 		BeginTextCommandSetBlipName("STRING")
 		AddTextComponentString(_U('job_center'))
 		EndTextCommandSetBlipName(blip)
-	end
-end)
-
--- Menu Controls
-Citizen.CreateThread(function()
-	while true do
-		Citizen.Wait(10)
-
-		if IsControlJustReleased(0, Keys['E']) and isInJoblistingMarker and not menuIsShowed then
-			ESX.UI.Menu.CloseAll()
-			ShowJobListingMenu()
-		end
 	end
 end)
