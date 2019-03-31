@@ -1,26 +1,21 @@
 # esx_joblisting
-Simple job listing script, you can specify what jobs you want to be whitelisted in db.
+一个简单的工作列表脚本
 
-## Download & Installation
+## 下载 & 安装
 
-### Using [fvm](https://github.com/qlaffont/fvm-installer)
-```
-fvm install --save --folder=esx esx-org/esx_joblisting
-```
-
-### Using Git
+### 使用 Git 下载
 ```
 cd resources
 git clone https://github.com/ESX-Org/esx_joblisting [esx]/esx_joblisting
 ```
 
-### Manually
-- Download https://github.com/ESX-Org/esx_joblisting/archive/master.zip
-- Put it in the `[esx]` directory
+### 手动下载
+- 下载 https://github.com/ESX-Org/esx_joblisting/archive/master.zip
+- 解压至 `[esx]` 文件夹
 
-## Installation
-- Import `esx_joblisting.sql` in your database
-- Add this in your `server.cfg`:
+## 安装
+- 导入 `esx_joblisting.sql` 至你的数据库
+- 添加如下至你的 `server.cfg` 文件:
 
 ```
 start esx_joblisting

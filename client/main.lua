@@ -21,8 +21,14 @@ function ShowJobListingMenu()
 		local elements = {}
 
 		for i = 1, #data, 1 do
+			if GetCurrentLanguageId() == 9 then
+				label = data[i].label_zh
+			elseif GetCurrentLanguageId() == 12 then
+				label = data[i].label_cn
+			else 
+				label = data[i].label
 			table.insert(elements, {
-				label = data[i].label,
+				label = label,
 				job   = data[i].job
 			})
 		end
